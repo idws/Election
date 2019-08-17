@@ -30,7 +30,13 @@ export default {
   rowView: {
     flex: 1,
     flexDirection: 'row',
-    justifyContent: 'space-between'
+    alignItems: 'flex-start'
+    // justifyContent: 'space-between'
   },
-
+  imageView: {
+    marginRight: 90
+  },
+  flatList: {
+    flex: 1
+  }
 }

@@ -17,6 +17,11 @@ class ImageContent extends Component {
     this.props.post()
   }
 
+  _onPressCancel = () => {
+    this.setState({ disabled: false })
+    return this.props.cancel()
+  }
+
   render() {
     const { name, source } = this.props
     const { disabled } = this.state
@@ -29,6 +34,9 @@ class ImageContent extends Component {
         <Text style={styles.name}>{name}</Text>
         <TouchableOpacity style={styles.button(disabled)} disabled={disabled} onPress={this._onPress}>
           <Text style={styles.textButton}>Pilih</Text>          
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.buttonCancel} onPress={this._onPressCancel}>
+          <Text style={styles.textButton}>Batal</Text>          
         </TouchableOpacity>
       </View>
     )

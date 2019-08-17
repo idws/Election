@@ -5,10 +5,16 @@
   "keywords": [],
   "main": "src/index.js",
   "dependencies": {
+    "firebase": "^6.4.0",
     "react": "16.8.4",
     "react-dom": "16.8.4",
     "react-native-web": "0.11.x",
-    "react-scripts": "2.1.8"
+    "react-redux": "^7.1.0",
+    "react-scripts": "2.1.8",
+    "redux": "^4.0.4",
+    "redux-actions": "^2.6.5",
+    "reselect": "^4.0.0",
+    "type-to-reducer": "^1.1.0"
   },
   "devDependencies": {},
   "scripts": {

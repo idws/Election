@@ -1,14 +1,10 @@
 import React, { Component } from 'react'
-import { View, Text, TouchableOpacity, Modal } from 'react-native'
+import { View, Text, TouchableOpacity } from 'react-native'
 import styles from './ThankYou.styles'
 
 class ThankYou extends Component {
   render() {
     return (
-      // <Modal
-      //   transparent={false}
-      //   style={styles.modal}
-      // >
       <View style={styles.modal}>
         <View style={styles.mainContainer}>
           <View style={styles.coloredView}>
@@ -19,7 +15,6 @@ class ThankYou extends Component {
           </View>
         </View>
       </View>
-      // </Modal>
     )
   }
 }

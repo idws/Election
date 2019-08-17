@@ -13,6 +13,14 @@ export default {
       borderRadius: 10
     }
   },
+  buttonCancel: {
+    backgroundColor: '#777878',
+    width: 180,
+    alignItems: 'center',
+    padding: 10,
+    borderRadius: 10,
+    marginTop: 10
+  },
   textButton: {
     fontSize: 20,
     fontFamily: 'Georgia, serif',
