@@ -8,5 +8,10 @@ export default {
     color: '#FFFFFF',
     fontSize: 18,
     marginBottom: 5
+  },
+  credit: {
+    color: '#FFFFFF',
+    fontSize: 10,
+    marginTop: 10
   }
 }

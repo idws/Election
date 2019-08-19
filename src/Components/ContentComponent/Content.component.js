@@ -15,31 +15,32 @@ class Content extends Component {
     this.state = {
       totalCount: 0,
       data:[
-        { name: 'Lebron James', count: 0 },
-        { name: 'Kevin Durant', count: 0 },
-        { name: 'Anthony Davis', count: 0 },
-        { name: 'Stephen Curry', count: 0 },
-        { name: 'James Harden', count: 0 },
-        { name: 'Kawhi Leonard', count: 0 },
-        { name: 'Kyrie Irving', count: 0 },
-        { name: 'Klay Thompson', count: 0 },
-        { name: 'Joel Embiid', count: 0 },
-        { name: 'Draymond Green', count: 0 },
-        { name: 'Luka Doncic', count: 0 },
-        { name: 'Kyle Lowry', count: 0 },
-        { name: 'Demarcus Cousin', count: 0 },
-        { name: 'Gianis Antetokoumpo', count: 0 },
-        { name: 'Jason Tatum', count: 0 },
-        { name: 'Russel Westbrook', count: 0 },
-        { name: 'Gordon Hayward', count: 0 },
-        { name: 'Kristapz Porzingis', count: 0 },
-        { name: 'Bradley Beal', count: 0 },
-        { name: 'Jokic', count: 0 },
-        { name: 'Paul George', count: 0 },
-        { name: 'Donovan Mitchell', count: 0 },
-        { name: 'Paul George', count: 0 },
-        { name: 'Pau Gasol', count: 0 },
-        { name: 'Myles Turner', count: 0 }
+        { name: 'Albertus Hartoyo', count: 0, image: 'no1', info: 'Lingk. St. Carolus' },
+        { name: 'Alb. Magnus Albert Christian', count: 0, image: 'no2', info: 'Lingk. St. Benediktus' },
+        { name: 'Albertus Sudarto', count: 0, image: 'no3', info: 'Lingk. St. Benediktus' },
+        { name: 'Antonius Purwaji', count: 0, image: 'no4', info: 'Lingk. St. Benediktus' },
+        { name: 'Eduardus Herry Hermawan', count: 0, image: 'no5', info: 'Lingk. St. Benediktus' },
+        { name: 'Emiliya Markini', count: 0, image: 'no6', info: 'Lingk. St. Benediktus' },
+        { name: 'Fellisianus Triyono', count: 0, image: 'no7', info: 'Lingk. St. Benediktus' },
+        { name: 'Fransiscus Wijayanto', count: 0, image: 'no8', info: 'Lingk. St. Benediktus' },
+        { name: 'Gabriel Arya Danurdara', count: 0, image: 'no9', info: 'Lingk. St. Benediktus' },
+        { name: 'Gregorius Sudarto', count: 0, image: 'no10', info: 'Lingk. St. Benediktus' },
+        { name: 'HEP Dwi Marjoko', count: 0, image: 'no11', info: 'Lingk. St. Benediktus' },
+        { name: 'Ignasia Suryaningsih', count: 0, image: 'no12', info: 'Lingk. St. Benediktus' },
+        { name: 'Irene Katharina Kasiyati', count: 0, image: 'no13', info: 'Lingk. St. Benediktus' },
+        { name: 'Juventius Devi Suntoro', count: 0, image: 'no14', info: 'Lingk. St. Benediktus' },
+        { name: 'Katarina Susi Indreswari', count: 0, image: 'no15', info: 'Lingk. St. Benediktus' },
+        { name: 'Kristiana Trisnawati', count: 0, image: 'no16', info: 'Lingk. St. Benediktus' },
+        { name: 'Laurentius Yulianto Endro', count: 0, image: 'no17', info: 'Lingk. St. Benediktus' },
+        { name: 'Maria Theresia Budi Wahyu S.', count: 0, image: 'no18', info: 'Lingk. St. Benediktus' },
+        { name: 'Mb. Retno Sari Handayani', count: 0, image: 'no19', info: 'Lingk. St. Benediktus' },
+        { name: 'Peter Eka Rosadi', count: 0, image: 'no20', info: 'Lingk. St. Benediktus' },
+        { name: 'Petrus Sumadiyana', count: 0, image: 'no21', info: 'Lingk. St. Benediktus' },
+        { name: 'Philipus Daru Sarjito', count: 0, image: 'no22', info: 'Lingk. St. Benediktus' },
+        { name: 'Romualdus Dandun Sarjito', count: 0, image: 'no23', info: 'Lingk. St. Benediktus' },
+        { name: 'Theodorus Tonny Haryanto', count: 0, image: 'no24', info: 'Lingk. St. Benediktus' },
+        { name: 'Yakobus Ngadiyana', count: 0, image: 'no25', info: 'Lingk. St. Benediktus' },
+        { name: 'Yohanes Yuli Farmanto', count: 0, image: 'no26', info: 'Lingk. St. Benediktus' }
       ],
     }
   }
@@ -53,14 +54,6 @@ class Content extends Component {
     return this.setState({ data, totalCount: this.state.totalCount + 1 });
 }
 
-  // _post = item => () => {
-  //   const { totalCount, data } = this.state
-  //   const index = item.index
-  //   console.log(item, 'item')    
-  //   return this.setState({ [data[index].count]: data[index].count + 1, totalCount: totalCount + 1})
-  //   // return console.log('should post the vote')
-  // }
-
   _cancel = () => {
     return this.setState({ totalCount: 0 })
   }
@@ -70,13 +63,15 @@ class Content extends Component {
   }
 
   _renderImageView = (item) => {
+    const key = item.item.image
     return (
       <View style={styles.imageView}>
         <ImageComponent
-          source={Images.noImage}
+          source={Images[key]}
           name={item.item.name}
           post={this._post(item)}
           cancel={this._cancel}
+          info={item.item.info}
         />
       </View>
     )
@@ -89,31 +84,9 @@ class Content extends Component {
         <FlatList
           data={data}
           renderItem={this._renderImageView}
-          numColumns={5}
+          numColumns={3}
           style={styles.flatList}
         />
-        {/* <FlatList
-          data={candidate2}
-          renderItem={this._renderImageView}
-        />
-        <FlatList
-          data={candidate3}
-          renderItem={this._renderImageView}
-        />
-        <FlatList
-          data={candidate4}
-          renderItem={this._renderImageView}
-        />
-        <FlatList
-          data={candidate5}
-          renderItem={this._renderImageView}
-        /> */}
-
-        {/* {this._renderImageView(candidate[0].name)}
-        {this._renderImageView(candidate[1].name)}
-        {this._renderImageView(candidate[2].name)}
-        {this._renderImageView(candidate[3].name)}
-        {this._renderImageView(candidate[4].name)} */}
       </View>
     )
   }
@@ -132,10 +105,6 @@ class Content extends Component {
       this.state.totalCount < 2 &&
       <ScrollView style={styles.scrollableView}>
         {this._renderRow()}
-        {/* {this._renderRow()}
-        {this._renderRow()}
-        {this._renderRow()}
-        {this._renderRow()} */}
       </ScrollView>
     )
   }

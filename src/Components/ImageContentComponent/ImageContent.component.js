@@ -23,21 +23,26 @@ class ImageContent extends Component {
   }
 
   render() {
-    const { name, source } = this.props
+    const { name, source, info } = this.props
     const { disabled } = this.state
     return (
       <View style={styles.imageView}>
-        <Image
-          source={source}
-          style={styles.image}
-        />
-        <Text style={styles.name}>{name}</Text>
-        <TouchableOpacity style={styles.button(disabled)} disabled={disabled} onPress={this._onPress}>
-          <Text style={styles.textButton}>Pilih</Text>          
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.buttonCancel} onPress={this._onPressCancel}>
-          <Text style={styles.textButton}>Batal</Text>          
-        </TouchableOpacity>
+        {/* <View> */}
+          <Image
+            source={source}
+            style={styles.image}
+          />
+          <Text style={styles.name}>{name}</Text>  
+          <Text style={styles.info}>{info}</Text>                  
+          <TouchableOpacity style={styles.button(disabled)} disabled={disabled} onPress={this._onPress}>
+            <Text style={styles.textButton}>Pilih</Text>          
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.buttonCancel} onPress={this._onPressCancel}>
+            <Text style={styles.textButton}>Batal</Text> 
+          </TouchableOpacity>
+        {/* </View>
+        <View style={styles.info}>
+        </View> */}
       </View>
     )
   }

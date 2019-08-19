@@ -1,7 +1,7 @@
 export default {
   content: {
     flex: 1,
-    paddingHorizontal: 20,
+    // paddingHorizontal: 20,
     paddingTop: 20
   },
   scrollableView: {
@@ -21,7 +21,8 @@ export default {
   },
   title: {
     fontSize: 30,
-    fontFamily: 'Georgia, serif'
+    fontFamily: 'Arial',
+    fontWeight: '700'
   },
   textContent: {
     fontSize: 10,
@@ -30,13 +31,14 @@ export default {
   rowView: {
     flex: 1,
     flexDirection: 'row',
-    alignItems: 'flex-start'
-    // justifyContent: 'space-between'
+    justifyContent: 'space-between'
+    // alignItems: 'flex-start',
   },
   imageView: {
-    marginRight: 90
+    marginRight: 90,
   },
   flatList: {
-    flex: 1
+    flex: 1,
+    // alignItems: 'space-between'
   }
 }
