@@ -6,6 +6,7 @@ export default {
   },
   scrollableView: {
     flex: 1,
+    marginTop: 80,
     paddingHorizontal: 80,
     paddingBottom: 80
   },
@@ -13,16 +14,18 @@ export default {
     flex: 1,
   },
   contentTitle: {
-    marginVertical: 10,
     alignItems: 'center',
-    maxHeight: 50,
-    borderBottomWidth: 1,
-    borderBottomColor: '#FFFFFF'
+    maxHeight: 400,
+    borderBottomWidth: 4,
+    borderBottomColor: '#000',
+    padding: 20,
+    marginHorizontal: 150
   },
   title: {
-    fontSize: 30,
+    fontSize: 50,
     fontFamily: 'Arial',
-    fontWeight: '700'
+    fontWeight: '700',
+    textAlign: 'center'
   },
   textContent: {
     fontSize: 10,
