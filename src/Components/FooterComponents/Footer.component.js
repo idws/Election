@@ -14,7 +14,7 @@ class Footer extends Component {
         <Text style={styles.topText}>Jl. Raya Tajem, Dolo, Pucanganom, Wedomartani</Text>
         <Text style={styles.topText}>Ngemplak, Sleman, DI. YOGYAKARTA, 55584</Text>
         <Text style={styles.topText} onPress={this._link}>Telp. 0274 – 870237 http://peterpaulbabadan.blogspot.co.id/</Text>
-        <Text style={styles.credit}>Powered by: IDWS</Text>
+        <Text style={styles.credit} onPress={this.props.onPress}>Powered by: IDWS</Text>
       </View>
     )
   }

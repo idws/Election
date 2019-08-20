@@ -54,8 +54,13 @@ class Content extends Component {
     return this.setState({ data, totalCount: this.state.totalCount + 1 });
 }
 
-  _cancel = () => {
-    return this.setState({ totalCount: 0 })
+  _cancel = item => () => {
+    const index = item.index
+    let data = [...this.state.data];
+    let candidate = {...data[index]};
+    candidate.count = candidate.count - 1;
+    data[index] = candidate;
+    return this.setState({ data, totalCount: 0 })
   }
 
   _onPressThanks = () => {
@@ -70,7 +75,7 @@ class Content extends Component {
           source={Images[key]}
           name={item.item.name}
           post={this._post(item)}
-          cancel={this._cancel}
+          cancel={this._cancel(item)}
           info={item.item.info}
         />
       </View>
@@ -109,9 +114,12 @@ class Content extends Component {
     )
   }
 
+  _onPressCount = () => {
+    console.log(this.state, 'data')
+  }
+
 
   render() {
-    console.log(this.state, 'data')
     return (
       <View style={styles.content}>
         <View style={styles.contentTitle}>
@@ -120,7 +128,7 @@ class Content extends Component {
         </View>
         {this._renderModal()}
         {this._renderContent()}
-        <Footer/>
+        <Footer onPress={this._onPressCount}/>
       </View>
     )
   }
