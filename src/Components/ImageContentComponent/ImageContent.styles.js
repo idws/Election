@@ -48,6 +48,7 @@ export default {
   },
   image: {
     height: 300,
-    width: 230
+    width: 230,
+    borderRadius: 20
   }
 }
