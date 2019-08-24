@@ -27,17 +27,26 @@ export default {
     color: '#FFFFFF',
     textAlign: 'center'
   },
-  button: {
-    backgroundColor: '#F7F7F7',
-    marginTop: 120,
-    padding: 20,
-    width: 200,
-    height: 90,
-    alignItems: 'center',
-    borderRadius: 10
+  button: (isCancel) => {
+    return {
+      backgroundColor: isCancel ? '#029DAD' : '#F7F7F7',
+      marginTop: 120,
+      padding: 20,
+      width: 200,
+      height: 90,
+      alignItems: 'center',
+      borderRadius: 10
+    }
   },
-  textButton: {
-    fontSize: 40,
-    color: '#029DAD',
+  textButton:(isCancel) => {
+    return {
+      fontSize: 40,
+      color: isCancel ? '#FFFFFF' : '#029DAD',
+    }
+  },
+  buttonView: {
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'space-between'
   }
 }
