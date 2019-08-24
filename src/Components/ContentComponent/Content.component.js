@@ -14,6 +14,7 @@ class Content extends Component {
 
     this.state = {
       totalCount: 0,
+      totalSuara: 0,
       data:[
         { name: '1. Albertus Hartoyo', count: 0, image: 'no1', info: 'Lingk. St. Carolus' },
         { name: '2. Alb. M. Albert Christian', count: 0, image: 'no2', info: 'Lingk. St. Benediktus' },
@@ -41,26 +42,28 @@ class Content extends Component {
         { name: '24. T. Tonny Haryanto', count: 0, image: 'no24', info: 'Lingk. St. Katarina Laboure' },
         { name: '25. Yakobus Ngadiyana', count: 0, image: 'no25', info: 'Lingk. St. Paulus' },
         { name: '26. Yohanes Yuli Farmanto', count: 0, image: 'no26', info: 'Lingk. St. Ignatius' }
-      ],
+      ]
     }
   }
 
   _post = item => () => {
+    const { totalCount, totalSuara, data } = this.state
     const index = item.index
-    let data = [...this.state.data];
-    let candidate = {...data[index]};
+    let candidates = [...data];
+    let candidate = {...candidates[index]};
     candidate.count = candidate.count + 1;
-    data[index] = candidate;
-    return this.setState({ data, totalCount: this.state.totalCount + 1 });
+    candidates[index] = candidate;
+    return this.setState({ data: candidates, totalCount: totalCount + 1, totalSuara: totalSuara + 1 });
 }
 
   _cancel = item => () => {
+    const { totalCount, totalSuara } = this.state
     const index = item.index
     let data = [...this.state.data];
     let candidate = {...data[index]};
     candidate.count = candidate.count - 1;
     data[index] = candidate;
-    return this.setState({ data, totalCount: 0 })
+    return this.setState({ data, totalCount: totalCount - 1, totalSuara: totalSuara - 1 })
   }
 
   _onPressThanks = () => {
@@ -115,7 +118,15 @@ class Content extends Component {
   }
 
   _onPressCount = () => {
-    console.log(this.state, 'data')
+    console.log(this.state.totalSuara, 'TOTAL SUARA')
+    console.table(this.state.data.sort((a, b) => {
+      return b.count - a.count
+    }), 'HASIL REKAP SUARA')
+  }
+
+  _onPressLook = () => {
+    console.log(this.state.totalSuara, 'TOTAL SUARA')
+    console.table(this.state.data, 'HASIL PENGHITUNGAN SUARA')
   }
 
 
@@ -128,7 +139,7 @@ class Content extends Component {
         </View>
         {this._renderModal()}
         {this._renderContent()}
-        <Footer onPress={this._onPressCount}/>
+        <Footer onPress={this._onPressCount} onPressLook={this._onPressLook}/>
       </View>
     )
   }
