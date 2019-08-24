@@ -59,8 +59,8 @@ class App extends Component {
     return (
       <Provider store={store}>
         <View style={styles.app}>
-          <Header />
           <ScrollView>
+            <Header />
             <Content />
           </ScrollView>
         </View>

@@ -6,6 +6,7 @@ import { Images } from '../../image/index'
 import ImageComponent from '../ImageContentComponent/ImageContent.component'
 import Modal from '../ThankYouComponent/ThankYou.component'
 import Footer from '../FooterComponents/Footer.component'
+import Recap from '../RecapList/RecapList'
 import styles from './Content.styles'
 import { post } from '../../actions';
 
@@ -18,7 +19,8 @@ class Content extends Component {
       totalCount: 0,
       totalSuara: 0,
       data:[],
-      showConfirmation: false
+      showConfirmation: false,
+      showRecap: false
     }
   }
 
@@ -102,7 +104,7 @@ class Content extends Component {
 
   _renderContent = () => {
     return (
-      this.state.totalCount < 2 &&
+      this.state.totalCount < 2 && !this.state.showRecap &&
       <ScrollView style={styles.scrollableView}>
         {this._renderRow()}
       </ScrollView>
@@ -110,10 +112,11 @@ class Content extends Component {
   }
 
   _onPressCount = () => {
-    console.log(this.props.totalCount, 'TOTAL SUARA')
-    console.table(this.props.data.sort((a, b) => {
+    const newData = this.props.data.sort((a, b) => {
       return b.count - a.count
-    }), 'HASIL REKAP SUARA')
+    })
+    this.setState({ showRecap: true })
+    return newData
   }
 
   _onPressLook = () => {
@@ -122,18 +125,34 @@ class Content extends Component {
   }
 
 
+  _renderRecap = () => {
+    return (
+      this.state.showRecap &&
+      <Recap
+        data={this.props.data}
+        totalCount={this.props.totalCount}
+      />
+    )
+  }
+
+  _renderTitle = () => (
+    !this.state.showRecap &&
+    <View style={styles.contentTitle}>
+      <Text style={styles.title}>Calon Wakil Ketua II / Formatur</Text>
+      <Text style={styles.title}>Dewan Pastoral Paroki 2020-2022</Text>
+    </View>
+  )
+
   render() {
     const { showConfirmation, showModal, totalCount } = this.state
-    const showConfirmationModal = totalCount === 2 && showConfirmation == true
+    const showConfirmationModal = totalCount === 2 && showConfirmation === true
     return (
       <View style={styles.content}>
-        <View style={styles.contentTitle}>
-          <Text style={styles.title}>Calon Wakil Ketua II / Formatur</Text>
-          <Text style={styles.title}>Dewan Pastoral Paroki 2020-2022</Text>
-        </View>
+        { this._renderTitle() }
         { showModal && this._renderModal('Terimakasih telah memberikan suaramu', false, this._onPressThanks, ()=>{}) }
         { showConfirmationModal&& this._renderModal('Apakah Anda sudah yakin dengan pilihan Anda ?', true, this._onConfirm, this._onCancel) }
-        {this._renderContent()}
+        { this._renderContent() }
+        { this._renderRecap() }
         <Footer onPress={this._onPressCount} onPressLook={this._onPressLook}/>
       </View>
     )
