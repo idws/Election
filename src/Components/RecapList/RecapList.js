@@ -28,7 +28,7 @@ class RecapList extends Component {
         <View style={styles.headerTable}>
           <Text style={styles.headerText}>Nama Calon</Text>
           <Text style={styles.headerText}>Asal Lingkungan</Text>
-          <Text style={styles.headerText}>Total Suara</Text>
+          <Text style={styles.headerText}>Perhitungan</Text>
         </View>
         <FlatList
           data={data}
